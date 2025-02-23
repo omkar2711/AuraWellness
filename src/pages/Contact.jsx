@@ -13,9 +13,9 @@ const Contact = () => {
       <div className='my-10 flex flex-col justify-center md:flex-row gap-10 mb-28 text-sm'>
         <img className='w-full md:max-w-[360px]' src={Image2} alt="" />
         <div className='flex flex-col justify-center items-start gap-6'>
-          <p className=' font-semibold text-lg text-gray-600'>OUR OFFICE</p>
+          {/* <p className=' font-semibold text-lg text-gray-600'>OUR OFFICE</p>
           <p className=' text-gray-500'>Building A1, Dubai Digital Park, Dubai Silicon Oasis, <br /> Dubai, United Arab Emirate</p>
-          <p className=' text-gray-500'>Tel: +971 58 562 6983 <br /> Email: aurawellnesssolutions@gmail.com</p>
+          <p className=' text-gray-500'>Tel: +971 58 562 6983 <br /> Email: aurawellnesssolutions@gmail.com</p> */}
         </div>
       </div>
 
