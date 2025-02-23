@@ -38,7 +38,7 @@ const Footer = () => {
         </p>
         <div className="flex gap-4">
           <a
-            href="https://www.instagram.com"
+            href=" https://www.instagram.com/frequencyhealiing/"
             target="_blank"
             rel="noopener noreferrer"
             className="text-gray-600 hover:text-[#E4405F] transition-colors"
@@ -46,7 +46,7 @@ const Footer = () => {
             <Instagram className="w-6 h-6" />
           </a>
           <a
-            href="https://www.youtube.com"
+            href=" https://www.youtube.com/@FrequencyHealiing"
             target="_blank"
             rel="noopener noreferrer"
             className="text-gray-600 hover:text-[#FF0000] transition-colors"
@@ -54,7 +54,7 @@ const Footer = () => {
             <Youtube className="w-6 h-6" />
           </a>
           <a
-            href="https://www.linkedin.com"
+            href=" https://www.linkedin.com/in/frequency-healing-717a44352/"
             target="_blank"
             rel="noopener noreferrer"
             className="text-gray-600 hover:text-[#0077B5] transition-colors"
@@ -62,7 +62,7 @@ const Footer = () => {
             <Linkedin className="w-6 h-6" />
           </a>
           <a
-            href="https://www.twitter.com"
+            href="https://x.com/freqheal"
             target="_blank"
             rel="noopener noreferrer"
             className="text-gray-600 hover:text-[#1DA1F2] transition-colors"
@@ -70,7 +70,7 @@ const Footer = () => {
             <Twitter className="w-6 h-6" />
           </a>
           <a
-            href="https://www.facebook.com"
+            href="https://www.facebook.com/profile.php?id=61573061957517"
             target="_blank"
             rel="noopener noreferrer"
             className="text-gray-600 hover:text-[#4267B2] transition-colors"
