@@ -60,22 +60,36 @@ const products = [
 
 export default function ProductPage() {
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [showDetails, setShowDetails] = useState(false);
 
   const nextSlide = () => {
     setCurrentIndex((prevIndex) =>
       prevIndex === products.length - 1 ? 0 : prevIndex + 1
     );
+    // Reset showDetails when changing slides on mobile
+    if (window.innerWidth < 768) {
+      setShowDetails(false);
+    }
   };
 
   const prevSlide = () => {
     setCurrentIndex((prevIndex) =>
       prevIndex === 0 ? products.length - 1 : prevIndex - 1
     );
+    // Reset showDetails when changing slides on mobile
+    if (window.innerWidth < 768) {
+      setShowDetails(false);
+    }
+  };
+
+  const toggleDetails = () => {
+    setShowDetails(!showDetails);
   };
 
   return (
     <div className="container mx-auto px-4 py-8 relative bg-white">
-      <div className="relative overflow-hidden mx-20 rounded-3xl shadow-xl">
+      {/* Main container with responsive padding */}
+      <div className="relative overflow-hidden mx-auto md:mx-20 rounded-3xl shadow-xl">
         <AnimatePresence mode="wait">
           <motion.div
             key={products[currentIndex].id}
@@ -88,20 +102,62 @@ export default function ProductPage() {
             <img
               src={products[currentIndex].image}
               alt={products[currentIndex].title}
-              className="w-full h-[600px] object-cover rounded-t-3xl"
+              className="w-full h-72 md:h-96 lg:h-[600px] object-cover rounded-t-3xl"
             />
-            <div className="absolute inset-0  rounded-t-3xl" />
-            <div className="absolute bottom-0 left-0 right-0 p-6 bg-white rounded-b-3xl shadow-lg text-gray-800">
-              <h2 className="text-3xl font-bold text-gray-900">
+            
+            {/* Mobile View - Title Only with option to expand */}
+            <div className="md:hidden absolute bottom-0 left-0 right-0 bg-white p-3 rounded-b-3xl shadow-lg">
+              <h2 className="text-xl font-bold text-gray-900">
                 {products[currentIndex].title}
               </h2>
-              <p className="text-gray-600 my-3">
+              
+              {/* Expandable details section for mobile */}
+              {showDetails && (
+                <motion.div 
+                  initial={{ height: 0, opacity: 0 }}
+                  animate={{ height: "auto", opacity: 1 }}
+                  exit={{ height: 0, opacity: 0 }}
+                  transition={{ duration: 0.3 }}
+                  className="mt-2"
+                >
+                  <p className="text-sm text-gray-600 my-2">
+                    {products[currentIndex].description}
+                  </p>
+                  <h3 className="text-base font-semibold text-gray-800 mb-1">
+                    Benefits:
+                  </h3>
+                  <ul className="list-disc list-inside space-y-1 text-sm text-gray-700">
+                    {products[currentIndex].benefits.map((benefit, index) => (
+                      <li key={index}>{benefit}</li>
+                    ))}
+                  </ul>
+                  <button className="mt-3 w-full flex items-center justify-center gap-2 bg-primary text-white py-2 px-4 rounded-xl hover:bg-blue-700 transition-colors shadow-md">
+                    Heal Now
+                  </button>
+                </motion.div>
+              )}
+              
+              {/* Toggle details button for mobile */}
+              <button 
+                onClick={toggleDetails}
+                className="mt-2 w-full text-sm text-blue-600 flex items-center justify-center"
+              >
+                {showDetails ? "Show Less" : "Show Details"}
+              </button>
+            </div>
+            
+            {/* Desktop View - Full details (hidden on mobile) */}
+            <div className="hidden md:block absolute bottom-0 left-0 right-0 p-6 bg-white rounded-b-3xl shadow-lg text-gray-800">
+              <h2 className="text-2xl lg:text-3xl font-bold text-gray-900">
+                {products[currentIndex].title}
+              </h2>
+              <p className="text-base text-gray-600 my-3">
                 {products[currentIndex].description}
               </p>
               <h3 className="text-lg font-semibold text-gray-800 mb-2">
                 Benefits:
               </h3>
-              <ul className="list-disc list-inside space-y-1 text-gray-700">
+              <ul className="list-disc list-inside space-y-1 text-base text-gray-700">
                 {products[currentIndex].benefits.map((benefit, index) => (
                   <li key={index}>{benefit}</li>
                 ))}
@@ -114,26 +170,27 @@ export default function ProductPage() {
         </AnimatePresence>
       </div>
 
-      {/* Navigation Buttons Outside the Product Container */}
+      {/* Navigation Buttons - Adjusted position for mobile */}
       <button
-        className="absolute top-1/2 left-2 transform -translate-y-1/2 bg-white p-2 rounded-full shadow-lg hover:bg-gray-200 transition"
+        className="absolute top-1/2 left-1 md:left-2 transform -translate-y-1/2 bg-white p-1 md:p-2 rounded-full shadow-lg hover:bg-gray-200 transition"
         onClick={prevSlide}
       >
-        <ChevronLeft className="text-blue-600" />
+        <ChevronLeft className="h-4 w-4 md:h-6 md:w-6 text-blue-600" />
       </button>
       <button
-        className="absolute top-1/2 right-2 transform -translate-y-1/2 bg-white p-2 rounded-full shadow-lg hover:bg-gray-200 transition"
+        className="absolute top-1/2 right-1 md:right-2 transform -translate-y-1/2 bg-white p-1 md:p-2 rounded-full shadow-lg hover:bg-gray-200 transition"
         onClick={nextSlide}
       >
-        <ChevronRight className="text-blue-600" />
+        <ChevronRight className="h-4 w-4 md:h-6 md:w-6 text-blue-600" />
       </button>
 
-      <div className="flex justify-center mt-6 space-x-2">
+      {/* Dot indicators */}
+      <div className="flex justify-center mt-4 md:mt-6 space-x-2">
         {products.map((_, index) => (
           <button
             key={index}
             onClick={() => setCurrentIndex(index)}
-            className={`h-3 w-3 rounded-full transition ${
+            className={`h-2 w-2 md:h-3 md:w-3 rounded-full transition ${
               index === currentIndex
                 ? 'bg-blue-600 scale-125'
                 : 'bg-gray-400 hover:bg-gray-600'
