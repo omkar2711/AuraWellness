@@ -9,7 +9,7 @@ const Footer = () => {
         <div>
           <img className="mb-5 w-60" src={Aura} alt="Aura Logo" />
           <p className="w-full md:w-2/3 text-gray-600 leading-6">
-            At <span className="font-semibold">AuraWellness</span>, we are dedicated to helping individuals achieve inner peace, spiritual growth, and overall well-being through the power of frequency healing, mindfulness, and divine connection. Our mission is to guide you on a transformative journey of self-discovery, balance, and healing. Join us to elevate your soul and live a harmonious life.
+            At <span className="font-semibold">frequencyhealiing</span>, we are dedicated to helping individuals achieve inner peace, spiritual growth, and overall well-being through the power of frequency healing, mindfulness, and divine connection. Our mission is to guide you on a transformative journey of self-discovery, balance, and healing. Join us to elevate your soul and live a harmonious life.
           </p>
         </div>
 
@@ -34,7 +34,7 @@ const Footer = () => {
 
       <div className="flex justify-between items-center mt-10">
         <p className="text-sm text-gray-600">
-          Copyright 2024 @ AuraWellness.com - All Rights Reserved.
+          Copyright 2024 @ frequencyhealiing.com - All Rights Reserved.
         </p>
         <div className="flex gap-4">
           <a
