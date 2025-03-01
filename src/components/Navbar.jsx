@@ -19,13 +19,13 @@ const Navbar = () => {
 
   return (
     <div className='flex items-center justify-between text-sm py-4 mb-5 border-b border-b-[#ADADAD]'>
-     <span 
-  onClick={() => navigate('/')} 
-  className='text-2xl font-extrabold text-[#A76192] hover:text-[#8A4A7A] transition-all duration-300 cursor-pointer tracking-wide drop-shadow-md'
->
-  Frequency Healiing
-</span>
-     <ul className='md:flex items-start gap-5 font-medium hidden'>
+      <span
+        onClick={() => navigate('/')}
+        className='text-2xl font-extrabold text-[#A76192] hover:text-[#8A4A7A] transition-all duration-300 cursor-pointer tracking-wide drop-shadow-md'
+      >
+        Frequency Healiing
+      </span>
+      <ul className='md:flex items-start gap-5 font-medium hidden'>
         <NavLink to='/' >
           <li className='py-1'>HOME</li>
           <hr className='border-none outline-none h-0.5 bg-primary w-3/5 m-auto hidden' />
@@ -78,6 +78,19 @@ const Navbar = () => {
             <NavLink onClick={() => setShowMenu(false)} to='/about' ><p className='px-4 py-2 rounded full inline-block'>ABOUT</p></NavLink>
             <NavLink onClick={() => setShowMenu(false)} to='/contact' ><p className='px-4 py-2 rounded full inline-block'>CONTACT</p></NavLink>
             <NavLink onClick={() => setShowMenu(false)} to='/blogs' ><p className='px-4 py-2 rounded full inline-block'>BLOGS</p></NavLink>
+            
+            {/* Add Create account button for mobile view */}
+            {!token && (
+              <button 
+                onClick={() => {
+                  setShowMenu(false)
+                  navigate('/login')
+                }} 
+                className='bg-primary text-white px-8 py-3 rounded-full font-light mt-4'
+              >
+                Create account
+              </button>
+            )}
           </ul>
         </div>
       </div>

@@ -37,7 +37,6 @@ const Header = () => {
 
   return (
     <div className="relative w-full h-[60vh] overflow-hidden rounded-lg mb-8">
-        
       {headerSlides.map((slide, index) => (
         <div
           key={slide.id}
@@ -50,7 +49,7 @@ const Header = () => {
             <h2 className="text-4xl font-bold mb-4">{slide.title}</h2>
             <p className="text-lg">{slide.description}</p>
             <div className='mt-10'>
-            <a href='#speciality' className='flex items-center gap-2 bg-white px-8 py-3 mt-20 rounded-full text-[#595959] text-sm m-auto md:m-0 hover:scale-105 transition-all duration-300'>
+            <a href='/products' className='flex items-center gap-2 bg-white px-8 py-3 mt-20 rounded-full text-[#595959] text-sm m-auto md:m-0 hover:scale-105 transition-all duration-300'>
                     Book appointment <img className='w-3' src={assets.arrow_icon} alt="" />
                 </a>
             </div>
