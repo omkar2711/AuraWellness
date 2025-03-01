@@ -2,6 +2,8 @@ import React from 'react';
 import { Instagram, Youtube, Linkedin, Twitter, Facebook } from 'lucide-react';
 import Aura from '../assets/header/Aura.png';
 
+import { NavLink } from 'react-router-dom';
+
 const Footer = () => {
   return (
     <div className="md:mx-10 mb-10">
@@ -14,14 +16,52 @@ const Footer = () => {
         </div>
 
         <div>
-          <p className="text-xl font-medium mb-5 mt-10">COMPANY</p>
-          <ul className="flex flex-col gap-2 text-gray-600 mt-20">
-            <li>Home</li>
-            <li>About us</li>
-            <li>Delivery</li>
-            <li>Privacy policy</li>
-          </ul>
-        </div>
+  <p className="text-xl font-medium mb-5 mt-10">COMPANY</p>
+  <ul className="flex flex-col gap-2 text-gray-600 mt-20">
+    <li>
+      <NavLink 
+        to="/" 
+        end
+        className={({ isActive }) => isActive ? 'text-[#A76192] font-bold' : ''}
+      >
+        Home
+      </NavLink>
+    </li>
+    <li>
+      <NavLink 
+        to="/about" 
+        className={({ isActive }) => isActive ? 'text-[#A76192] font-bold' : ''}
+      >
+        About us
+      </NavLink>
+    </li>
+    <li>
+      <NavLink 
+        to="/products" 
+        className={({ isActive }) => isActive ? 'text-[#A76192] font-bold' : ''}
+      >
+        Delivery
+      </NavLink>
+    </li>  
+    <li>
+      <NavLink 
+        to="/terms-and-conditions" 
+        className={({ isActive }) => isActive ? 'text-[#A76192] font-bold' : ''}
+      >
+        Terms and Conditions
+      </NavLink>
+    </li>  
+    <li>
+      <NavLink 
+        to="/privacy-policy" 
+        className={({ isActive }) => isActive ? 'text-[#A76192] font-bold' : ''}
+      >
+        Privacy policy
+      </NavLink>
+    </li>
+  </ul>
+</div>
+
 
         <div>
           <p className="text-xl font-medium mb-5 mt-10 ">GET IN TOUCH</p>

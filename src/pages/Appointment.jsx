@@ -88,7 +88,7 @@ const Appointment = () => {
     const bookAppointment = async () => {
 
         if (!token) {
-            toast.warning('Login to book appointment')
+            // toast.warning('Login to book appointment')
             return navigate('/login')
         }
 
@@ -108,12 +108,12 @@ const Appointment = () => {
                 getDoctosData()
                 navigate('/my-appointments')
             } else {
-                toast.error(data.message)
+                // toast.error(data.message)
             }
 
         } catch (error) {
             console.log(error)
-            toast.error(error.message)
+            // toast.error(error.message)
         }
 
     }
