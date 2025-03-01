@@ -9,8 +9,9 @@ const Footer = () => {
     <div className="md:mx-10 mb-10">
       <div className="flex flex-col sm:grid grid-cols-[3fr_1fr_1fr] gap-14 my-10 mt-40 text-sm">
         <div>
-          <img className="mb-5 w-60" src={Aura} alt="Aura Logo" />
-          <p className="w-full md:w-2/3 text-gray-600 leading-6">
+        <span className='text-2xl font-extrabold text-[#A76192] hover:text-[#8A4A7A] transition-all duration-300 cursor-pointer tracking-wide drop-shadow-md'>
+  FrequencyHealing
+</span>          <p className="w-full md:w-2/3 text-gray-600 leading-6">
             At <span className="font-semibold">frequencyhealiing</span>, we are dedicated to helping individuals achieve inner peace, spiritual growth, and overall well-being through the power of frequency healing, mindfulness, and divine connection. Our mission is to guide you on a transformative journey of self-discovery, balance, and healing. Join us to elevate your soul and live a harmonious life.
           </p>
         </div>

@@ -1,3 +1,7 @@
+import Blog1 from '../../src/assets/header/Sample_Image.jpg';
+import Blog2 from '../../src/assets/header/SampleImage2.jpeg';
+import Blog3 from '../../src/assets/header/SliderImage3.png';
+
 const blogsData = [
     {
       id: 1,
@@ -21,7 +25,7 @@ const blogsData = [
         The Path to Soul Healing
         When you engage with frequency healing, you’re not just experiencing relaxation—you’re actively working to elevate your soul. This process can help you connect with your higher self, tap into deep reservoirs of inner peace, and heal on a profound level. As you continue to explore the power of frequency, you may find that your spiritual journey takes on new depth, transforming your life in unexpected and beautiful ways.
       `,
-      image: 'https://source.unsplash.com/800x600/?meditation,sound',
+      image: Blog1,
     },
     {
       id: 2,
@@ -44,7 +48,7 @@ const blogsData = [
         - Integrate Mindfulness: Be mindful during everyday tasks, grounding you in the present moment.
         - Daily Meditation: Even just a few minutes of meditation each day can enhance your clarity and peace.
       `,
-      image: 'https://source.unsplash.com/800x600/?meditation,mindfulness',
+      image: Blog2,
     },
     {
       id: 3,
@@ -62,7 +66,7 @@ const blogsData = [
         - Emotional Resilience: When life’s challenges arise, a connection with the Divine gives you the strength and faith to endure with grace.
         - Love and Compassion: By connecting with the Divine, you cultivate an open heart full of love, compassion, and kindness for others.
       `,
-      image: 'https://source.unsplash.com/800x600/?spirituality,peace',
+      image: Blog3,
     },
   ];
   
