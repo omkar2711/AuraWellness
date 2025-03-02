@@ -34,9 +34,9 @@ const Aurawellness = () => {
         ))}
       </div>
 
-      <div className="mt-8 flex justify-center">
+      {/* <div className="mt-8 flex justify-center">
         <img src='https://le-cdn.hibuwebsites.com/d81d78ffdac741a0a071450d7406ca1d/dms3rep/multi/opt/PrecisionCare-PNG-640w.png' alt="Frequency Healing Machine" className="rounded-lg shadow-lg w-full h-auto md:w-2/3" />
-      </div>
+      </div> */}
     </div>
   );
 };

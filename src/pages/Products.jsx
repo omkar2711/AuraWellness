@@ -1,9 +1,16 @@
 import React, { useState } from 'react';
 import { X } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
-import Silver from '../../src/assets/header/Sample_Image.jpg';
-import Gold from '../../src/assets/header/SampleImage2.jpeg';
-import Platinum from '../../src/assets/header/SliderImage3.png';
+import Silver from '../assets/header/Sample_Image.jpg';
+import Gold from '../assets/header/SampleImage2.jpeg';
+import Platinum from '../assets/header/SliderImage3.png';
+import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
+import { toast } from 'react-toastify';
+
+
+const backendUrl = import.meta.env.VITE_BACKEND_URL
+
 
 
 // Package Data
@@ -53,46 +60,117 @@ const packages = [
 ];
 
 // Modal Component
-function PackageModal({ selectedPackage, onClose }) {
+function PackageModal({ selectedPackage, onClose, token }) {
+  const navigate = useNavigate();
+  const [formData, setFormData] = useState({
+    fullName: '',
+    email: '',
+    phoneNumber: ''
+  });
+
+  const handleSubmit = async () => {
+    if (!token) {
+      toast.warning('Please login to book a package');
+      return navigate('/login');
+    }
+
+    try {
+      const { data } = await axios.post(backendUrl + '/api/user/all-appointments', {
+        ...formData,
+        package: selectedPackage.name
+      }, {
+        headers: { token }
+      });
+
+      if (data.success) {
+        toast.success('Package booked successfully!');
+        onClose();
+        // navigate('/my-appointments');
+      } else {
+        toast.error(data.message || 'Booking failed');
+      }
+    } catch (error) {
+      console.error('Booking error:', error);
+      toast.error(error.response?.data?.message || 'Failed to book package');
+    }
+  };
+
   if (!selectedPackage) return null;
   return (
     <AnimatePresence>
       <motion.div 
-        className="fixed inset-0 flex items-center justify-center z-50 bg-black bg-opacity-50"
+        className="fixed inset-0 flex items-start justify-center z-50 bg-black bg-opacity-50 p-2 sm:p-4 overflow-y-auto min-h-screen"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         exit={{ opacity: 0 }}
       >
         <motion.div 
-          className="bg-white rounded-2xl p-8 shadow-2xl w-full max-w-4xl relative"
+          className="bg-white rounded-2xl p-4 sm:p-6 md:p-8 shadow-2xl w-full max-w-6xl relative flex flex-col md:flex-row gap-4 md:gap-8 my-2 sm:my-4 md:my-8"
           initial={{ y: 50, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
           exit={{ y: 50, opacity: 0 }}
           transition={{ type: 'spring', stiffness: 100 }}
         >
           <button 
-            className="absolute top-4 right-4 text-gray-500 hover:text-gray-800 transition-colors" 
+            className="absolute top-2 right-2 sm:top-4 sm:right-4 text-gray-500 hover:text-gray-800 transition-colors z-10" 
             onClick={onClose}
           >
             <X className="w-6 h-6" />
           </button>
-          <img 
-            src={selectedPackage.sampleImage} 
-            alt={selectedPackage.name} 
-            className="w-full h-64 object-cover rounded-xl mb-6"
-          />
-          <h2 className="text-3xl font-bold text-gray-800 mb-4">{selectedPackage.name}</h2>
-          <p className="text-gray-600 mb-4">{selectedPackage.description}</p>
-          <h3 className="text-xl font-semibold text-gray-800 mb-2">Benefits:</h3>
-          <ul className="list-disc list-inside text-gray-600 space-y-1 mb-6">
-            {selectedPackage.benefits.map((benefit, index) => (
-              <li key={index}>{benefit}</li>
-            ))}
-          </ul>
-          <h3 className="text-2xl font-semibold text-gray-800 mb-4">Price: {selectedPackage.price}</h3>
-          <button className="w-full bg-[#A76192] text-white py-3 rounded-xl font-semibold shadow-md hover:bg-[#904873] transition-all">
-            Get Started
-          </button>
+
+          {/* Left Column - Package Information */}
+          <div className="flex-1 space-y-3 sm:space-y-4 md:space-y-6 overflow-y-auto max-h-[70vh] md:max-h-[80vh] pr-2">
+            <img 
+              src={selectedPackage.sampleImage} 
+              alt={selectedPackage.name} 
+              className="w-full h-32 sm:h-48 md:h-56 object-cover rounded-xl"
+            />
+            <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-gray-800">{selectedPackage.name}</h2>
+            <p className="text-sm sm:text-base text-gray-600">{selectedPackage.description}</p>
+            <div>
+              <h3 className="text-base sm:text-lg md:text-xl font-semibold text-gray-800 mb-1 sm:mb-2">Benefits:</h3>
+              <ul className="list-disc list-inside text-sm sm:text-base text-gray-600 space-y-0.5 sm:space-y-1">
+                {selectedPackage.benefits.map((benefit, index) => (
+                  <li key={index}>{benefit}</li>
+                ))}
+              </ul>
+            </div>
+            <h3 className="text-lg sm:text-xl md:text-2xl font-semibold text-gray-800">Price: {selectedPackage.price}</h3>
+          </div>
+
+          {/* Right Column - Booking Form */}
+          <div className="flex-1 flex flex-col space-y-3 sm:space-y-4 md:space-y-6 mt-4 md:mt-0 overflow-y-auto max-h-[70vh] md:max-h-[80vh] pr-2">
+            <h3 className="text-lg sm:text-xl md:text-2xl font-semibold text-gray-800">Book Your Package</h3>
+            <form className="space-y-2 sm:space-y-3 md:space-y-4 flex-grow">
+              <input
+                type="text"
+                placeholder="Full Name"
+                className="w-full p-2 sm:p-3 border rounded-lg text-sm sm:text-base"
+                value={formData.fullName}
+                onChange={(e) => setFormData({...formData, fullName: e.target.value})}
+              />
+              <input
+                type="email"
+                placeholder="Email"
+                className="w-full p-2 sm:p-3 border rounded-lg text-sm sm:text-base"
+                value={formData.email}
+                onChange={(e) => setFormData({...formData, email: e.target.value})}
+              />
+              <input
+                type="tel"
+                placeholder="Phone Number"
+                className="w-full p-2 sm:p-3 border rounded-lg text-sm sm:text-base"
+                value={formData.phoneNumber}
+                onChange={(e) => setFormData({...formData, phoneNumber: e.target.value})}
+              />
+            </form>
+            <button 
+              className="w-full bg-[#A76192] text-white py-2 sm:py-3 rounded-xl font-semibold shadow-md hover:bg-[#904873] transition-all text-sm sm:text-base sticky bottom-0"
+              onClick={handleSubmit}
+            >
+              Book Now
+            </button>
+          </div>
         </motion.div>
       </motion.div>
     </AnimatePresence>
@@ -121,6 +199,7 @@ function PackageCard({ pkg, onClick }) {
 
 export default function Packages() {
   const [selectedPackage, setSelectedPackage] = useState(null);
+  const token = localStorage.getItem('token'); // Or use your auth context
 
   return (
     <div className="min-h-screen py-16">
@@ -146,7 +225,8 @@ export default function Packages() {
       {/* Modal */}
       <PackageModal 
         selectedPackage={selectedPackage} 
-        onClose={() => setSelectedPackage(null)} 
+        onClose={() => setSelectedPackage(null)}
+        token={token}
       />
     </div>
   );
