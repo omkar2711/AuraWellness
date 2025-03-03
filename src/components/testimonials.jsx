@@ -3,33 +3,23 @@ import { Star, Quote } from 'lucide-react';
 
 const testimonials = [
   {
-    name: 'Sarah Johnson',
-    role: 'Marketing Director',
-    company: 'TechCorp',
-    image:
-      'https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&q=80&w=200&h=200',
-    content:
-      'This platform has completely transformed how we approach our digital strategy. The results have been nothing short of extraordinary.',
+    name: 'Dr Vinod Gidwani ',
+    location: 'Mumbai ',
+     content:'I recently tried frequency healing for the first time, and I am truly amazed by the results! The session was incredibly relaxing, and I could feel the positive energy flowing through my body. Afterward, I noticed a significant improvement in my overall well-being - I felt more balanced, focused, and energized. The practitioner was knowledgeable, caring, and created a safe space for me to relax and heal. I highly recommend frequency healing to anyone looking to enhance their physical, emotional, and spiritual health. I will definitely be returning for more sessions in the future!.',
     rating: 5,
   },
   {
-    name: 'Michael Chen',
-    role: 'Senior Developer',
-    company: 'InnovateLabs',
-    image:
-      'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&q=80&w=200&h=200',
+    name: 'Aliasgar Lokhandwala',
+    location: 'Pune',
     content:
-      "The attention to detail and technical excellence displayed by the team is remarkable. They've helped us achieve our goals faster than we imagined possible.",
+      'Murtaza is a rare gift—his healing presence brings peace 🕊️, clarity 🌟, and deep transformation 🔮. Through his profound wisdom, frequency healing ⚡ and distance energy work 🌍, I have felt my burdens lift and my mind find balance.His guidance is gentle yet powerful, like a soothing light 💫 leading the way. More than a coach, he is a true healer, a friend, and a soul who genuinely cares 💖.If you seek healing, clarity, and inner peace, Murtaza is the one to trust. His energy is pure serenity ✨.Highly recommended! 🌟',
     rating: 5,
   },
   {
-    name: 'Emma Thompson',
-    role: 'CEO',
-    company: 'DesignWorks',
-    image:
-      'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?auto=format&fit=crop&q=80&w=200&h=200',
+    name: 'Vikash Dubey',
+    location: 'Delhi',
     content:
-      'Working with this team has been a game-changer for our business. Their innovative solutions and dedication to excellence are unmatched.',
+      'I had the pleasure of receiving an aura reading session from Murtaza Hakimji, and I was truly blown away by the depth of insight and accuracy he provided. His expertise and intuition shone brightly throughout the session, shedding light on aspects of myself that I had never considered before. I left feeling enlightened, inspired, and more in tune with my own energy. Murtaza compassionate approach and keen understanding make him a gifted aura reader that I would highly recommend to anyone seeking a deeper connection to their inner self. Thank you, Murtaza, for such a wonderful experience!',
     rating: 5,
   },
 ];
@@ -49,11 +39,7 @@ function TestimonialCard({ testimonial }) {
     <div className="relative bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-shadow duration-300">
       <Quote className="absolute -top-4 -left-4 w-10 h-10 text-[#A76192] bg-white rounded-full p-1 shadow-lg" />
       <div className="flex items-start gap-6">
-        <img
-          src={testimonial.image}
-          alt={testimonial.name}
-          className="w-20 h-20 rounded-2xl object-cover shadow-md"
-        />
+       
         <div className="flex-1 space-y-4">
           <StarRating rating={testimonial.rating} />
           <p className="text-gray-700 leading-relaxed">"{testimonial.content}"</p>
