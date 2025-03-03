@@ -36,7 +36,7 @@ const TermsAndConditions = () => {
 
         <h2 className="text-2xl font-semibold text-[#A76192] mt-8 mb-4">Refunds</h2>
         <p className="text-gray-700 mb-6">
-          Refunds for services are available if the cancellation is made at least 24 hours in advance. If the cancellation occurs after this period, a 30% deduction will apply. For more details, please refer to our refund policy on our website or contact us directly.
+          Refunds for services are available if the cancellation is made at least 24 hours in advance. If the cancellation occurs after this period, a 30% deduction will apply. For more details, please contact us directly on our email id Support@frequencyhealiing.com.
         </p>
 
         <h2 className="text-2xl font-semibold text-[#A76192] mt-8 mb-4">Content</h2>

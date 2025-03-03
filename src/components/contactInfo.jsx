@@ -104,9 +104,9 @@ function ContactInfo() {
             </div>
 
             {/* Healness Name Input */}
-            <div>
+            {/* <div>
               <label htmlFor="healness" className="block text-sm font-medium text-gray-700 mb-1">
-                Name of Healness
+                Package
               </label>
               <div className="relative">
                 <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
@@ -119,11 +119,34 @@ function ContactInfo() {
                   value={formData.healness}
                   onChange={handleChange}
                   className="block w-full pl-10 pr-3 py-3 border border-gray-300 rounded-xl focus:ring-[#A76192] focus:border-[#A76192] transition duration-150 ease-in-out"
-                  placeholder="Enter healness name"
+                  placeholder="Package"
                   required
                 />
               </div>
-            </div>
+            </div> */}
+            {/* <div>
+              <label htmlFor="healness" className="block text-sm font-medium text-gray-700 mb-1">
+                Package
+              </label>
+              <div className="relative">
+                <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                  <Building2 className="h-5 w-5 text-[#A76192]" />
+                </div>
+                <select
+                  id="healness"
+                  name="healness"
+                  value={formData.healness}
+                  onChange={handleChange}
+                  className="block w-full pl-10 pr-3 py-3 border border-gray-300 rounded-xl focus:ring-[#A76192] focus:border-[#A76192] transition duration-150 ease-in-out"
+                  required
+                >
+                  <option value="">Select a package</option>
+                  <option value="Silver">Silver</option>
+                  <option value="Gold">Gold</option>
+                  <option value="Platinum">Platinum</option>
+                </select>
+              </div>
+            </div> */}
 
             {/* Description Input */}
             <div>
