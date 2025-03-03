@@ -26,7 +26,7 @@ const packages = [
       'Set of energy-balancing healing crystals',
       'Perfect for starting your spiritual journey'
     ],
-    price: '$49',
+    price: '199 AED',
     sampleImage: Silver
   },
   {
@@ -40,7 +40,7 @@ const packages = [
       'Premium healing crystal collection',
       'Aura-cleansing essential oil blend included'
     ],
-    price: '$99',
+    price: '699 AED',
     sampleImage:Gold
   },
   {
@@ -54,7 +54,7 @@ const packages = [
       'Exclusive energy cleansing kit',
       'All benefits from the Gold Package included'
     ],
-    price: '$199',
+    price: '999 AED',
     sampleImage: Platinum
   }
 ];
