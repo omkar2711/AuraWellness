@@ -12,7 +12,7 @@ const Home = () => {
   return (
     <div>
       <Header />
-      <whyFrequency />
+      {/* <whyFrequency /> */}
       <SpecialityMenu />
       <ProductPage  />
       {/* <TopProducts /> */}

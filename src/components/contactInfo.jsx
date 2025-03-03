@@ -1,19 +1,61 @@
 import React, { useState } from 'react';
 import { Send, Phone, Mail, User, Building2, MessageSquare } from 'lucide-react';
+import emailjs from '@emailjs/browser';
 
 function ContactInfo() {
   const [formData, setFormData] = useState({
     name: '',
     phone: '',
     email: '',
-    healness: '',
+    package: '',
     description: ''
   });
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // Handle form submission here
-    console.log('Form submitted:', formData);
+    
+    try {
+      // Send email to owner
+      await emailjs.send(
+        'service_2u4rw1q',
+        'template_nucuhca',
+        {
+          to_email: 'frequencyhealiing@gmail.com',
+          from_name: formData.name,
+          from_email: formData.email,
+          phone: formData.phone,
+          package: formData.package,
+          message: formData.description
+        },
+        'Lsjpj4fE_PIldyucf'
+      );
+
+      // Send confirmation email to user
+      await emailjs.send(
+        'service_2u4rw1q',
+        'template_tpagv72',
+        {
+          to_name: formData.name,
+          to_email: formData.email,
+          package: formData.package
+        },
+        'Lsjpj4fE_PIldyucf'
+      );
+
+      // Reset form after successful submission
+      setFormData({
+        name: '',
+        phone: '',
+        email: '',
+        package: '',
+        description: ''
+      });
+
+      alert('Thank you for your message. We will get back to you soon!');
+    } catch (error) {
+      console.error('Error sending email:', error);
+      // alert('There was an error sending your message. Please try again later.');
+    }
   };
 
   const handleChange = (e) => {
@@ -103,10 +145,10 @@ function ContactInfo() {
               </div>
             </div>
 
-            {/* Healness Name Input */}
+            {/* Package Name Input */}
             <div>
-              <label htmlFor="healness" className="block text-sm font-medium text-gray-700 mb-1">
-                Name of Healness
+              <label htmlFor="package" className="block text-sm font-medium text-gray-700 mb-1">
+                Name of Package
               </label>
               <div className="relative">
                 <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
@@ -114,12 +156,12 @@ function ContactInfo() {
                 </div>
                 <input
                   type="text"
-                  id="healness"
-                  name="healness"
-                  value={formData.healness}
+                  id="package"
+                  name="package"
+                  value={formData.package}
                   onChange={handleChange}
                   className="block w-full pl-10 pr-3 py-3 border border-gray-300 rounded-xl focus:ring-[#A76192] focus:border-[#A76192] transition duration-150 ease-in-out"
-                  placeholder="Enter healness name"
+                  placeholder="Enter package name"
                   required
                 />
               </div>
