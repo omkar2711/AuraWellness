@@ -77,7 +77,7 @@ const Footer = () => {
         <p className="text-sm text-gray-600">
           Copyright 2024 @ frequencyhealiing.com - All Rights Reserved.
         </p>
-        <div className="flex gap-4">
+        {/* <div className="flex gap-4">
           <a
             href=" https://www.instagram.com/frequencyhealiing/"
             target="_blank"
@@ -118,7 +118,7 @@ const Footer = () => {
           >
             <Facebook className="w-6 h-6" />
           </a>
-        </div>
+        </div> */}
       </div>
     </div>
   );
