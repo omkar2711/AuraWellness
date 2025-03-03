@@ -7,7 +7,7 @@ function ContactInfo() {
     name: '',
     phone: '',
     email: '',
-    package: '',
+    // package: '',
     description: ''
   });
 
@@ -24,7 +24,7 @@ function ContactInfo() {
           from_name: formData.name,
           from_email: formData.email,
           phone: formData.phone,
-          package: formData.package,
+          // package: formData.package,
           message: formData.description
         },
         'Lsjpj4fE_PIldyucf'
@@ -37,7 +37,7 @@ function ContactInfo() {
         {
           to_name: formData.name,
           to_email: formData.email,
-          package: formData.package
+          // package: formData.package
         },
         'Lsjpj4fE_PIldyucf'
       );
@@ -47,7 +47,7 @@ function ContactInfo() {
         name: '',
         phone: '',
         email: '',
-        package: '',
+        // package: '',
         description: ''
       });
 
@@ -146,7 +146,7 @@ function ContactInfo() {
             </div>
 
             {/* Package Name Input */}
-            <div>
+            {/* <div>
               <label htmlFor="package" className="block text-sm font-medium text-gray-700 mb-1">
                 Name of Package
               </label>
@@ -165,7 +165,7 @@ function ContactInfo() {
                   required
                 />
               </div>
-            </div> 
+            </div>  */}
             {/* <div>
               <label htmlFor="healness" className="block text-sm font-medium text-gray-700 mb-1">
                 Package
