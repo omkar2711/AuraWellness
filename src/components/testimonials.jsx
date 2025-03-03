@@ -16,10 +16,10 @@ const testimonials = [
     rating: 5,
   },
   {
-    name: 'Vikash Dubey',
+    name: 'Rajesh Budhrani',
     location: 'Delhi',
     content:
-      'I had the pleasure of receiving an aura reading session from Murtaza Hakimji, and I was truly blown away by the depth of insight and accuracy he provided. His expertise and intuition shone brightly throughout the session, shedding light on aspects of myself that I had never considered before. I left feeling enlightened, inspired, and more in tune with my own energy. Murtaza compassionate approach and keen understanding make him a gifted aura reader that I would highly recommend to anyone seeking a deeper connection to their inner self. Thank you, Murtaza, for such a wonderful experience!',
+      'I have experienced enormous stress and suffering in my relations. I have been a victim of backstabbing, disrespectful and toxic behavior. All this had greatly harmed my peace & calmness and has put me in depression. I had become angry and short tempered. My mental stability had disappeared until I met Murtaza Hakimji. I am grateful to him for patiently listening and  understanding my story. He then gave me counselling and guidance for the life ahead. All that he shared has transformed my life and made me A Better Person ! My life today is better, my relations have healed, my emotional health and stability is better, my sleep is better. All this is because of Murtaza Hakimji, and I am forever grateful to him for that 🙏 My prayers and good wishes for everyone going through stress and suffering !',
     rating: 5,
   },
 ];
