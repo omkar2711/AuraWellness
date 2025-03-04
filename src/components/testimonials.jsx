@@ -24,6 +24,8 @@ const testimonials = [
   },
 ];
 
+
+
 function StarRating({ rating }) {
   return (
     <div className="flex gap-1.5">
@@ -31,6 +33,11 @@ function StarRating({ rating }) {
         <Star key={i} className="w-5 h-5 fill-[#A76192] text-[#A76192]" />
       ))}
     </div>
+  //   <div className="flex gap-1.5">
+  //   {[...Array(rating)].map((_, i) => (
+  //     <Star key={i} className="w-5 h-5 fill-[#A76192] text-[#A76192]" />
+  //   ))}
+  // </div>
   );
 }
 
