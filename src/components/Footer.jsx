@@ -77,15 +77,24 @@ const Footer = () => {
         <p className="text-sm text-gray-600">
           Copyright 2024 @ frequencyhealiing.com - All Rights Reserved.
         </p>
-        {/* <div className="flex gap-4">
+         <div className="flex gap-4">
           <a
-            href=" https://www.instagram.com/frequencyhealiing/"
+            href="https://www.instagram.com/frequencyhealiing2025"
             target="_blank"
             rel="noopener noreferrer"
             className="text-gray-600 hover:text-[#E4405F] transition-colors"
           >
             <Instagram className="w-6 h-6" />
           </a>
+              <a
+            href="https://www.facebook.com/profile.php?id=61573932925255"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-gray-600 hover:text-[#4267B2] transition-colors"
+          >
+            <Facebook className="w-6 h-6" />
+          </a>
+      {/*
           <a
             href=" https://www.youtube.com/@FrequencyHealiing"
             target="_blank"
@@ -109,16 +118,8 @@ const Footer = () => {
             className="text-gray-600 hover:text-[#1DA1F2] transition-colors"
           >
             <Twitter className="w-6 h-6" />
-          </a>
-          <a
-            href="https://www.facebook.com/profile.php?id=61573061957517"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-gray-600 hover:text-[#4267B2] transition-colors"
-          >
-            <Facebook className="w-6 h-6" />
-          </a>
-        </div> */}
+          </a>*/}
+        </div> 
       </div>
     </div>
   );
