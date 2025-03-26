@@ -16,7 +16,7 @@ const backendUrl = import.meta.env.VITE_BACKEND_URL
 // Package Data
 const packages = [
   {
-    id: 1,
+    id: "67e39f1868a04dfd03afbc61",
     name: 'Silver Package',
     shortDescription: 'Basic healing experience with essential meditation tools.',
     description: `The Silver Package is designed for beginners who want to start their journey towards healing and meditation. It includes guided meditation audios, an introductory mindfulness journal, and a set of healing crystals to support your practice.`,
@@ -30,7 +30,7 @@ const packages = [
     sampleImage: Silver
   },
   {
-    id: 2,
+    id: "67e39f8c68a04dfd03afbc62",
     name: 'Gold Package',
     shortDescription: 'Enhanced spiritual wellness with exclusive healing tools.',
     description: `The Gold Package is curated for those looking to deepen their spiritual practice. It includes advanced guided meditation audios, a complete mindfulness journal, a premium set of healing crystals, and an aura-cleansing essential oil blend.`,
@@ -44,7 +44,7 @@ const packages = [
     sampleImage:Gold
   },
   {
-    id: 3,
+    id: "67e39f9b68a04dfd03afbc63",
     name: 'Platinum Package',
     shortDescription: 'Complete spiritual transformation with personalized guidance.',
     description: `The Platinum Package is the ultimate spiritual wellness experience. It includes everything in the Gold Package plus one-on-one spiritual coaching sessions, custom healing affirmations, and an exclusive energy cleansing kit for home use.`,
@@ -74,14 +74,25 @@ function PackageModal({ selectedPackage, onClose, token }) {
       return navigate('/login');
     }
 
+    
     try {
+      
       const { data } = await axios.post(backendUrl + '/api/user/all-appointments', {
         ...formData,
+        packageId: selectedPackage.id,
         package: selectedPackage.name
       }, {
         headers: { token }
       });
-
+      
+      const appointmentId = data.appointmentId
+      const paymentResponse = await axios.post(backendUrl + '/api/user/payment-stripe', {
+        appointmentId,
+      }, {
+        headers: { token }
+      });
+      // redirect to payment page
+      window.location.href = paymentResponse.data.session_url
       if (data.success) {
         toast.success('Package booked successfully!');
         onClose();
